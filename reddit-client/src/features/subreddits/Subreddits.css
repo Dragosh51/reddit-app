@@ -1,0 +1,8 @@
+.subredditBox {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    background: var(--color-foreground);
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+}

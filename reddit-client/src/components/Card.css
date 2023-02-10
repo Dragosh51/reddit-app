@@ -1,0 +1,7 @@
+.individualCard {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    background: var(--color-foreground);
+    box-shadow: var(--box-shadow);
+    margin-top: 10px;
+}

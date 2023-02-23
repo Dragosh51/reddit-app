@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import './Subreddits.css';
+import redditLogo from "../../assets/reddit-logo.png"; 
+
+// REDUX
+import { useDispatch, useSelector } from "react-redux";
+import { getSubreddits } from "../../store/Action/apiActions";
+
+const api = [
+    { title: "post 1" },
+    { title: "post 2" },
+    { title: "post 3" },
+];
 
 const Subreddits = () => {
-    // un array de obiecte in care sa am numele subdredditului (vreo 2-3), fa si map-ul aici, sa le pun una sub alta
+    const dispatch = useDispatch();
+    const allSubreddits = useSelector(({ api }) => api.allSubreddits);
+    console.log(allSubreddits);
+    useEffect(() => {
+        dispatch(getSubreddits())
+    }, [dispatch])
+
     return (
-        <div className="subredditBox">
+            <div className="subredditContainer2">
             <SearchBar />
-        </div>
+            <div className="subredditBox">
+                
+                {allSubreddits !== undefined &&
+                    allSubreddits.children.map((child, index) =>
+                    <button key={index}>
+                        <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
+                        <h3>{child.data.title}</h3>
+                    </button>
+                    )}
+            </div>
+            </div>
     )
 }
 

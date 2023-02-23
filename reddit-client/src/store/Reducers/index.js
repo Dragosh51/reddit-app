@@ -1,3 +1,7 @@
 import { combineReducers } from "redux";
 
-export default combineReducers;
+import apiReducers from "./apiReducers";
+
+export default combineReducers({
+    api: apiReducers,
+});

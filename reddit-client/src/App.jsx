@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './globalStyle.css';
 import Header from './features/Header/Header';
 import Subreddits from './features/Subreddits/Subreddits';
 import Panel from './features/Panel/Panel';
@@ -9,12 +9,8 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-          <Panel />
-      </main>
-      <aside>
-        <Subreddits />
-      </aside>
+      <Panel />
+      <Subreddits />
     </>
   );
 }

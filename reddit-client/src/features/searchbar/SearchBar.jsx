@@ -4,10 +4,10 @@ import './SearchBar.css'
 const SearchBar = () => {
 
     return (
-        <>
-        <input className="searchInput" placeholder="search" >
-        </input>
-        </>
+        <div className="inputContainer">
+            <input className="searchInput" placeholder="Search..." >
+            </input>
+        </div>
     )
 };
 

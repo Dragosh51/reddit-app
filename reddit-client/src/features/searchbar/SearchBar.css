@@ -1,3 +1,21 @@
 .searchInput {
     width: 100%;
+    padding: 5px 10px;
+    border: none;
+    background: #ff4300;
+    border-radius: 20px;
+    color: white;
+}
+
+.searchInput::placeholder {
+    color: rgba(239, 233, 233, 0.655);
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+.inputContainer {
+    width: 100%;
+    padding-bottom: 1px;
 }

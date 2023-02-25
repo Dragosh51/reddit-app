@@ -30,7 +30,7 @@ const Subreddits = () => {
                     allSubreddits.children.map((child, index) =>
                     <button key={index}>
                         <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
-                        <h3>{child.data.title}</h3>
+                        <h3>{child.data.title.slice(0, 20)}..</h3>
                     </button>
                     )}
             </div>

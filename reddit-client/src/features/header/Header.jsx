@@ -1,5 +1,6 @@
 import React from "react";
 import './Header.css';
+import settingsLogo from '../../assets/settingsLogo.png'
 
 const Header = () => {
 
@@ -7,16 +8,14 @@ const Header = () => {
         <header>
             <div className="logo">
                 <p>
-                    Reddit<span>Minimal</span>
+                    Mini<span>Reddit</span>
                 </p>
             </div>
-            <div>
-                
-            </div>
-                <button className="settings" type="button" aria-label="Settings">
-                    ...
+            <div className="settingsDiv">
+               <button className="settings" type="button" aria-label="Settings">
+                    <img className="settingsLogo"src={settingsLogo}></img>
                 </button>
-            
+            </div>
         </header>
     )
 };

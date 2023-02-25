@@ -1,32 +1,44 @@
 header .logo {
-    font-weight: bold;
-    padding: var(--spacing-1) 0;
-    grid-column: 1/2;
-    display: flex;
-    align-items: center;
-  }
-  
-  header {
-    color: var(--color-branding);
-    background: var(--color-foreground);
-    box-shadow: var(--box-shadow);
-    height: 64px;
-    padding: 0 var(--spacing-5);
-  }
+  font-weight: bold;
+  padding: var(--spacing-1) 0;
+  border: 2px solid;
+  border-color: #ff4609;
+  border-radius: 20px;
+  padding: 1px 10px
+}
 
-  header span {
-    color: var(--color-text-header);
-  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ff4609;
+  background: var(--color-foreground);
+  box-shadow: var(--box-shadow);
+  height: 64px;
+  padding: 0 var(--spacing-5);
+}
 
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-secondary);
-    font-size: 1.5rem;
-  }
+header span {
+  color: var(--color-text-header);
+}
 
-  .settings {
-    display: flex;
-    justify-content: right;
-  }
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: 1.5rem;
+}
+
+.settings {
+  justify-content:center;
+}
+
+.settingsDiv{
+  justify-content: right;
+}
+
+.settingsLogo {
+  max-width: 25px;
+  max-height: 25px;
+}

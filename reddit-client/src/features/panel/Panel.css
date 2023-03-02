@@ -1,3 +1,4 @@
 .postPanel {
     height: calc(100vh - 90px);
+    width: calc(100% - 330px);
 }

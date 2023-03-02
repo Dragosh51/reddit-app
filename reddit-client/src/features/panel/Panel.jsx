@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useState } from 'react';
+import axios from 'axios';
 import './Panel.css';
 import Card from '../../components/Card'
 
@@ -28,17 +30,33 @@ const api = [
 
 
 const Panel = () => {
+    const posts = useSelector(({ api }) => api.allPosts);
+    // console.log(posts);
+    // const [selectedPost, setSelectedPost] = useState(null);
+    // // console.log(selectedPost);
     
+    // const handlePostClick = async (postId) => {
+    //   const response = await axios.get(`https://www.reddit.com/api/info.json?id=${postId}`);
+    //   const post = response.data.data.children[0].data;
+    //   setSelectedPost(post);
+    // }
+  
     return (
-        <>
+      <>
         <div className="postPanel">
-            {api.map((obj, i)=>
-            <Card key={i} obj={obj}/>
-                
-            )}
+          {posts !== undefined && posts.children.map((post, index) => (
+            // <Card key={index} post={post} onClick={() => handlePostClick(post.id)} />
+            <Card key={index} post={post} />
+          ))}
         </div>
-        </>
-    )
-};
+        {/* {selectedPost && (
+          <div className="postContent">
+            <h2>{selectedPost.title}</h2>
+            <p>{selectedPost.selftext}</p>
+          </div>
+        )} */}
+      </>
+    );
+  };
 
 export default Panel;

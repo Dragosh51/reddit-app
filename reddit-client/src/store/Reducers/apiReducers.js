@@ -11,6 +11,12 @@ const apiReducer = (state = initState, action) => {
                 // isLoading: true,
                 allSubreddits: action.payload,
             };
+        
+        case 'FETCH_POSTS':
+            return {
+                ...state,
+                allPosts: action.payload,
+            };
 
         default:
             return state;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_ROOT = 'https://www.reddit.com/';
+const API_ROOT = 'https://www.reddit.com';
 
 export const getSubreddits = () => (dispatch, getState) => {
 
@@ -29,6 +29,37 @@ export const getSubreddits = () => (dispatch, getState) => {
         .catch(err => {
             console.log(err)
         })
+};
+
+export const getSubredditPosts = (subreddit) => (dispatch, getState) => {
+
+    const sub = JSON.stringify(subreddit)
+
+    fetch(`${API_ROOT}${subreddit.url}.json?limit=20`)
+        .then(res => res.json())
+        .then(res => {
+            // console.log("FETCH_POSTS", res.data);
+            dispatch({
+                type: 'FETCH_POSTS',
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+    //  axios
+    //     .get(`${API_ROOT}`, sub)
+    //     .then((res) => {
+    //         console.log("FETCH_API", res.data);
+    //         dispatch({
+    //             type: 'FETCH_API',
+    //             payload: res.data,
+    //         });
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     });
 };
 
 // export const getSubredditPosts = async (subreddit) => {

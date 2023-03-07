@@ -8,12 +8,64 @@
 }
 
 .cardTitle {
-    color: black;
+    color: #222;
     margin-bottom: 10px;
+    font-size: medium;
+    border-bottom: 3px solid #ff4609;
+    margin-bottom: 20px;
+    padding-bottom: 5px
+}
+
+.cardLink {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.linkLogo {
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+.image {
+    width: 500px;
+    height: auto;
 }
 
 .cardImage {
-    width: 300px;
-    height: 300px;
+    width: auto;
+    height: auto;
     overflow: hidden;
+    padding: 20px;
+}
+
+.media{
+    display: flex;
+    margin-top: 10px;
+}
+
+.commentsButton {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+}
+
+.likeButton {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+}
+
+.dislikeButton {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    transform: rotate(180deg);
+}
+
+.shareButton {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
 }

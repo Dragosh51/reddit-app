@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import './Subreddits.css';
 import redditLogo from "../../assets/reddit-logo.png"; 
@@ -16,7 +16,10 @@ const api = [
 const Subreddits = () => {
     const dispatch = useDispatch();
     const allSubreddits = useSelector(({ api }) => api.allSubreddits);
-    console.log(allSubreddits);
+    // console.log(allSubreddits);
+    const [results, setResults] = useState();
+    console.log(results);
+
     useEffect(() => {
         dispatch(getSubreddits())
     }, [dispatch])
@@ -32,13 +35,14 @@ const Subreddits = () => {
         dispatch(getSubredditPosts(child))
     };
 
+
     return (
             <div className="subredditContainer2">
-            <SearchBar />
+            <SearchBar searchSubreddits={allSubreddits} setResults={setResults}/>
             <div className="subredditBox">
                 
-                {allSubreddits !== undefined &&
-                    allSubreddits.children.map((child, index) =>
+                {results !== undefined &&
+                    results.map((child, index) =>
                     <button key={index} onClick={() => getAllPosts(child.data) }>
                         <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
                         <h3>{child.data.title.slice(0, 20)}..</h3>

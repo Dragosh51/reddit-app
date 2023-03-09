@@ -46,18 +46,24 @@
 }
 
 .commentsButton {
+    display: flex;
+    align-items: center;
     width: 40px;
     height: 40px;
     justify-content: center;
 }
 
 .likeButton {
+    display: flex;
+    align-items: center;
     width: 40px;
     height: 40px;
     justify-content: center;
 }
 
 .dislikeButton {
+    display: flex;
+    align-items: center;
     width: 40px;
     height: 40px;
     justify-content: center;
@@ -65,7 +71,29 @@
 }
 
 .shareButton {
+    display: flex;
+    align-items: center;
     width: 40px;
     height: 40px;
     justify-content: center;
+}
+
+.commentsImage {
+    width: 40px;
+    height: 40px;
+}
+
+.likeImage{
+    width: 40px;
+    height: 40px;
+}
+
+.dislikeImage {
+    width: 40px;
+    height: 40px;
+}
+
+.shareImage {
+    width: 40px;
+    height: 40px;
 }

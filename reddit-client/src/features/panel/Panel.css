@@ -3,3 +3,11 @@
     width: calc(100% - 330px);
     overflow: auto;
 }
+
+@media only screen and (max-width: 500px) {
+    .postPanel {
+        height: auto;
+        width: auto;
+        overflow: auto;
+    }
+  }

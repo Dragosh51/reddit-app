@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import './Subreddits.css';
-import redditLogo from "../../assets/reddit-logo.png"; 
+import redditLogo from "../../assets/reddit-logo.png";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -19,14 +19,15 @@ const Subreddits = () => {
     // console.log(allSubreddits);
     const [results, setResults] = useState();
     console.log(results);
+    const showSubreddits = useSelector(({ other }) => other.openSidebar);
 
     useEffect(() => {
         dispatch(getSubreddits())
     }, [dispatch])
 
     useEffect(() => {
-        if(allSubreddits !== undefined) {
-        dispatch(getSubredditPosts(allSubreddits.children[0].data))
+        if (allSubreddits !== undefined) {
+            dispatch(getSubredditPosts(allSubreddits.children[0].data))
         }
     }, [dispatch, allSubreddits])
 
@@ -37,19 +38,37 @@ const Subreddits = () => {
 
 
     return (
+        <>
+            <div className="subredditContainer1">
+                <SearchBar searchSubreddits={allSubreddits} setResults={setResults} />
+                <div className="subredditBox">
+
+                    {results !== undefined &&
+                        results.map((child, index) =>
+                            <button key={index} onClick={() => getAllPosts(child.data)}>
+                                <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
+                                <h3>{child.data.title.slice(0, 20)}..</h3>
+                            </button>
+                        )}
+                </div>
+            </div>
+            {showSubreddits && 
             <div className="subredditContainer2">
-            <SearchBar searchSubreddits={allSubreddits} setResults={setResults}/>
+            <SearchBar searchSubreddits={allSubreddits} setResults={setResults} />
             <div className="subredditBox">
-                
+
                 {results !== undefined &&
                     results.map((child, index) =>
-                    <button key={index} onClick={() => getAllPosts(child.data) }>
-                        <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
-                        <h3>{child.data.title.slice(0, 20)}..</h3>
-                    </button>
+                        <button key={index} onClick={() => getAllPosts(child.data)}>
+                            <img className="subreddit-logo" src={child.data.icon_img === "" ? redditLogo : child.data.icon_img} alt=""></img>
+                            <h3>{child.data.title.slice(0, 20)}..</h3>
+                        </button>
                     )}
             </div>
-            </div>
+        </div>
+            }
+            
+        </>
     )
 }
 

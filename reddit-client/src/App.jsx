@@ -9,10 +9,10 @@ import './App.css';
 function App() {
   return (
     <>
-      <Header />
+      <Header className="header"/>
       <div className="mediaBox">
-      <Subreddits />
-      <Panel />
+      <Subreddits className="searchResults"/>
+      <Panel className="panel"/>
       </div>
     </>
   );
